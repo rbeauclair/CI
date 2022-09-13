@@ -65,7 +65,9 @@ func EditarAluno(c *gin.Context) {
 			"erro": err.Error()})
 		return
 	}
+
 	if err := models.ValidaDadosDeAluno(&aluno); err != nil {
+
 		c.JSON(http.StatusBadRequest, gin.H{
 			"erro": err.Error()})
 		return
@@ -98,3 +100,4 @@ func ExibePaginaIndex(c *gin.Context) {
 func RotaNaoEncontrada(c *gin.Context) {
 	c.HTML(http.StatusNotFound, "404.html", nil)
 }
+
